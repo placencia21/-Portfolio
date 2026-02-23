@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+
+<style>
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-image: url(image.2jpg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* OVERLAY */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: -1;
+}
+
+/* LAYOUT */
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 220px;
+    background: rgba(0,0,0,0.4);
+    color: white;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 12px 0;
+    padding: 10px;
+    border-radius: 6px;
+    transition: background 0.3s;
+    cursor: pointer;
+}
+
+.sidebar a:hover {
+    background: #333;
+}
+
+/* MAIN */
+.main {
+    flex: 1;
+    padding: 30px;
+}
+
+/* HERO CARD (PROFILE CARD) */
+.hero-card {
+    background: rgba(255,255,255,0.08);
+    padding: 25px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    backdrop-filter: blur(8px);
+    box-shadow:
+        0 0 15px rgba(255,255,255,0.25),
+        0 0 30px rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+/* IMAGE */
+.hero-card img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+}
+
+/* TEXT */
+.hero-text h1 {
+    margin: 0;
+    color: white;
+}
+
+.hero-text p {
+    margin: 5px 0;
+    color: #eee;
+}
+
+/* SECTIONS */
+section {
+    display: none;
+    margin-top: 30px;
+    background: rgba(0,0,0,0.55);
+    padding: 25px;
+    border-radius: 15px;
+    color: white;
+    box-shadow: 0 0 15px rgba(255,255,255,0.15);
+}
+
+section.active {
+    display: block;
+}
+
+/* PROJECTS */
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.project-card {
+    background: rgba(255,255,255,0.15);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    color: white;
+}
+
+.project-card:hover {
+    background: rgba(0,123,255,0.7);
+}
+
+/* FOOTER */
+footer {
+    margin-top: 30px;
+    text-align: center;
+    color: white;
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        text-align: center;
+    }
+
+    .hero-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="sidebar">
+        <h2>JAY</h2>
+        <a onclick="showSection('home')">Home</a>
+        <a onclick="showSection('objective')">Objective</a>
+        <a onclick="showSection('skills')">Skills</a>
+        <a onclick="showSection('projects')">Projects</a>
+        <a onclick="showSection('contact')">Contact</a>
+    </div>
+
+    <div class="main">
+
+        <div class="hero-card" id="home">
+            <img src="image.jpg..jpg" alt="My Photo">
+            <div class="hero-text">
+                <h1>Rowell Jay Placencia</h1>
+                <p>BS Information Technology - 3rd Year</p>
+            </div>
+        </div>
+
+        <section id="objective">
+            <h2>Career Objective</h2>
+            <p>To become a skilled IT professional and gain experience in developing useful and user-friendly applications.</p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Basic JavaScript</li>
+                <li>Basic Python</li>
+            </ul>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-list">
+                <div class="project-card" onclick="location.href='student.html'">Student Registration System</div>
+                <div class="project-card" onclick="location.href='grading.html'">Simple Grading System</div>
+                <div class="project-card" onclick="location.href='calculator.html'">Basic Calculator</div>
+                <div class="project-card" onclick="location.href='resume.html'">Resume</div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:placencia@gmail.com" style="color:lightblue;">placencia@gmail.com</a></p>
+            <p>Phone: 09106000022</p>
+            <p>Facebook: <a href="https://www.facebook.com/" target="_blank" style="color:lightblue;">Rowell Placencia</a></p>
+        </section>
+
+        <footer>
+            <p>© 2026 Rowell Placencia | Portfolio</p>
+        </footer>
+
+    </div>
+</div>
+
+<script>
+function showSection(id) {
+    let sections = document.querySelectorAll("section");
+    sections.forEach(sec => sec.classList.remove("active"));
+
+    let target = document.getElementById(id);
+    if (target) {
+        target.classList.add("active");
+        target.scrollIntoView({ behavior: "smooth" });
+    }
+}
+</script>
+
+</body>
+</html>
